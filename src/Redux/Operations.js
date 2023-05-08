@@ -13,4 +13,6 @@ const register = createAsyncThunk(
             return error.message;
         }
     }
-)
+);
+
+export default register;
