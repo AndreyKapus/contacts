@@ -8,24 +8,27 @@ export const SignUpForm = () => {
     const handleChange = (e) => {
         const {name, value} = e.target;
 
-      switch(e.target.name) {
-        case name:
+        if(name === 'name') {
             setUserName({[name]: value});
-            break;
-        case email: 
+            return;
+        };
+        if(name === 'email') {
             setEmail({[name]: value});
-            break;
-        case password: 
+            return;
+        };
+        if(name === 'password') {
             setPassword({[name]: value});
-            break;
+            return;
+        }
+    };
 
-            default: break;
-      }
+    const handleSubmit = (e) => {
+        e.preventDefault();
     };
 
     return (
         <>
-            <form>
+            <form onSubmit={handleSubmit}>
             <label>
                 <input type="text" name="name" onChange={handleChange}/>
                     Name
