@@ -1,9 +1,13 @@
 import { useState } from "react"
-
+import {register} from '../../Redux/Operations'
+import { useDispatch } from "react-redux";
+ 
 export const SignUpForm = () => {
     const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const dispactch = useDispatch()
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -24,6 +28,7 @@ export const SignUpForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        dispactch(register({userName, email, password}))
     };
 
     return (
